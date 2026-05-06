@@ -35,7 +35,7 @@
             opacity: 0.85;
         }
 
-        /* WATER RAIN CANVAS - animated droplets from top */
+        /* WATER RAIN CANVAS */
         #rainCanvas {
             position: fixed;
             top: 0;
@@ -94,7 +94,7 @@
             z-index: 1;
         }
 
-        /* HERO MASCOT COVER */
+        /* HERO MASCOT COVER with HIRE ME */
         .hero-mascot {
             position: relative;
             width: 100%;
@@ -114,6 +114,7 @@
             width: 260px;
             height: 260px;
             animation: mascotWave 2.8s ease-in-out infinite;
+            z-index: 2;
         }
 
         .mascot {
@@ -141,7 +142,41 @@
                 0 0 120px #f093fb;
             animation: hiPop 2s ease-in-out infinite;
             pointer-events: none;
-            z-index: 2;
+            z-index: 3;
+        }
+
+        /* HIRE ME text - left and right of profile */
+        .hire-text {
+            position: absolute;
+            left: 8%;
+            top: 38%;
+            font-size: 72px;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 0 30px #667eea, 0 0 60px #f093fb;
+            animation: jump 1.6s ease-in-out infinite;
+            z-index: 4;
+            letter-spacing: -6px;
+            white-space: nowrap;
+        }
+
+        .me-text {
+            position: absolute;
+            right: 8%;
+            top: 38%;
+            font-size: 72px;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 0 30px #764ba2, 0 0 60px #f093fb;
+            animation: jump 1.6s ease-in-out infinite 0.3s;
+            z-index: 4;
+            letter-spacing: -6px;
+            white-space: nowrap;
+        }
+
+        @keyframes jump {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-28px); }
         }
 
         @keyframes mascotWave {
@@ -326,10 +361,13 @@
             z-index: 2;
         }
 
-        /* Achievements with BALLOON animation */
+        /* Achievements with BALLOON animation (spawning from UNDER) */
+        .achievements-section {
+            position: relative;
+        }
+
         .achievements-list {
             list-style: none;
-            position: relative;
         }
 
         .achievements-list li {
@@ -369,15 +407,15 @@
             75% { transform: translateY(5px) rotate(-4deg); }
         }
 
-        /* Balloon container */
+        /* Balloon container - positioned under achievements */
         .balloon-container {
             position: absolute;
-            top: 0;
+            bottom: -20px;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 420px;
             pointer-events: none;
-            z-index: 10;
+            z-index: 5;
             overflow: hidden;
         }
 
@@ -507,6 +545,7 @@
             .container { padding: 16px 16px 40px; }
             .hero-mascot { height: 260px; }
             .mascot-container { width: 190px; height: 190px; }
+            .hire-text, .me-text { font-size: 48px; top: 42%; }
             .projects-grid { grid-template-columns: 1fr; }
             .right-bottom { flex-direction: column; }
             .content-wrapper { flex-direction: column; }
@@ -522,7 +561,6 @@
     </style>
 </head>
 <body>
-    <!-- Fire + Rain canvases -->
     <canvas id="fireCanvas"></canvas>
     <canvas id="rainCanvas"></canvas>
     <div class="grain"></div>
@@ -532,12 +570,19 @@
 
     <div class="container">
 
-        <!-- HERO MASCOT COVER -->
+        <!-- HERO MASCOT COVER with HIRE ME -->
         <div class="hero-mascot">
+            <!-- HIRE on left (bold + jumping) -->
+            <div class="hire-text">HIRE</div>
+
             <div class="mascot-container">
                 <img src="https://i.postimg.cc/wxt4ZyhS/20250330-141247-00002.png" alt="Abdul Alahi Mascot" class="mascot">
                 <div class="hi-text">HI 👋</div>
             </div>
+
+            <!-- ME on right -->
+            <div class="me-text">ME</div>
+
             <div class="hero-name">Abdul Alahi</div>
         </div>
 
@@ -586,8 +631,8 @@
                     </div>
                 </section>
 
-                <!-- Achievements (with balloon container) -->
-                <section class="section" style="position:relative;">
+                <!-- Achievements -->
+                <section class="achievements-section section" style="position:relative;">
                     <h2 class="section-title">Achievements</h2>
                     <div class="balloon-container" id="balloonContainer"></div>
                     <ul class="achievements-list">
@@ -685,7 +730,7 @@
                             </div>
 
                             <div class="project-card">
-                                <div class="project-header"><span class="project-role">MODERATOR • 2021–2023</span></div>
+                                <div class="project-header"><span class="project-role">MODERATOR • 2024-2025</span></div>
                                 <h3 style="margin-bottom:12px; font-size:19px;">Hyperbolic</h3>
                                 <a href="https://x.com/hyperbolic_labs" target="_blank" class="x-btn"><span>𝕏</span> @hyperbolic_labs</a>
                                 <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
@@ -744,7 +789,7 @@
     </div>
 
     <script>
-        // ==================== FIRE CANVAS ====================
+        // ==================== FIRE + RAIN CANVASES (unchanged) ====================
         const fireCanvas = document.getElementById('fireCanvas');
         const fireCtx = fireCanvas.getContext('2d');
         let fireParticles = [];
@@ -778,16 +823,6 @@
             }
         }
 
-        function resizeCanvases() {
-            const w = window.innerWidth;
-            const h = window.innerHeight;
-            fireCanvas.width = w;
-            fireCanvas.height = h;
-            rainCanvas.width = w;
-            rainCanvas.height = h;
-        }
-
-        // ==================== WATER RAIN CANVAS ====================
         const rainCanvas = document.getElementById('rainCanvas');
         const rainCtx = rainCanvas.getContext('2d');
         let rainDrops = [];
@@ -820,46 +855,15 @@
             }
         }
 
-        // ==================== BALLOON ANIMATION (from Achievements) ====================
-        function createBalloon() {
-            const container = document.getElementById('balloonContainer');
-            const balloon = document.createElement('div');
-            balloon.textContent = '🎈';
-            balloon.style.position = 'absolute';
-            balloon.style.fontSize = `${Math.random() * 28 + 24}px`;
-            balloon.style.left = `${Math.random() * 100}%`;
-            balloon.style.bottom = '0';
-            balloon.style.opacity = '1';
-            balloon.style.transition = `transform 4s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 3.5s ease-out`;
-            container.appendChild(balloon);
-
-            // Random horizontal drift
-            const drift = (Math.random() * 180 - 90);
-            setTimeout(() => {
-                balloon.style.transform = `translateY(-${window.innerHeight + 300}px) translateX(${drift}px)`;
-                balloon.style.opacity = '0';
-            }, 50);
-
-            // Remove after animation
-            setTimeout(() => balloon.remove(), 5000);
+        function resizeCanvases() {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            fireCanvas.width = w; fireCanvas.height = h;
+            rainCanvas.width = w; rainCanvas.height = h;
         }
-
-        // Spawn balloons every 400ms when achievements are visible
-        let balloonInterval = null;
-        const achievementsSection = document.querySelector('.achievements-list').parentElement;
-
-        function startBalloonParty() {
-            if (balloonInterval) return;
-            balloonInterval = setInterval(() => {
-                if (Math.random() > 0.3) createBalloon();
-            }, 380);
-        }
-
-        // ==================== INITIALIZE EVERYTHING ====================
         window.addEventListener('resize', resizeCanvases);
         resizeCanvases();
 
-        // Fire animation
         function animateFire() {
             fireCtx.fillStyle = 'rgba(10, 8, 12, 0.18)';
             fireCtx.fillRect(0, 0, fireCanvas.width, fireCanvas.height);
@@ -876,7 +880,6 @@
         }
         animateFire();
 
-        // Rain animation
         function animateRain() {
             rainCtx.clearRect(0, 0, rainCanvas.width, rainCanvas.height);
             if (rainDrops.length < 180) {
@@ -891,7 +894,37 @@
         }
         animateRain();
 
-        // Custom Cursor
+        // ==================== BALLOON ANIMATION (under achievements) ====================
+        function createBalloon() {
+            const container = document.getElementById('balloonContainer');
+            const balloon = document.createElement('div');
+            balloon.textContent = ['🎈','🎉','🪅','✨'][Math.floor(Math.random()*4)];
+            balloon.style.position = 'absolute';
+            balloon.style.fontSize = `${Math.random() * 32 + 22}px`;
+            balloon.style.left = `${Math.random() * 100}%`;
+            balloon.style.bottom = '-30px';
+            balloon.style.opacity = '1';
+            balloon.style.transition = `transform 4.2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 3.8s ease-out`;
+            container.appendChild(balloon);
+
+            const drift = (Math.random() * 220 - 110);
+            setTimeout(() => {
+                balloon.style.transform = `translateY(-${window.innerHeight + 400}px) translateX(${drift}px)`;
+                balloon.style.opacity = '0';
+            }, 80);
+
+            setTimeout(() => balloon.remove(), 5200);
+        }
+
+        let balloonInterval = null;
+        function startBalloonParty() {
+            if (balloonInterval) return;
+            balloonInterval = setInterval(() => {
+                if (Math.random() > 0.25) createBalloon();
+            }, 320);
+        }
+
+        // ==================== CURSOR & INTERACTIONS ====================
         const cursor = document.querySelector('.cursor');
         const follower = document.querySelector('.cursor-follower');
         let mouseX = 0, mouseY = 0;
@@ -911,7 +944,6 @@
         }
         animateFollower();
 
-        // Interactive elements
         document.querySelectorAll('a, .skill-card, .project-card, .interest-tag, .achievements-list li').forEach(el => {
             el.addEventListener('mouseenter', () => {
                 follower.style.width = '80px';
@@ -944,18 +976,16 @@
             });
         });
 
-        // Start balloon animation when achievements section enters viewport
+        // Start balloons
+        const achievementsSection = document.querySelector('.achievements-section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    startBalloonParty();
-                }
+                if (entry.isIntersecting) startBalloonParty();
             });
-        }, { threshold: 0.4 });
-
+        }, { threshold: 0.3 });
         observer.observe(achievementsSection);
 
-        console.log('%c✅ Updated with animated water droplets raining from top + floating balloons from Achievements section!', 'color:#667eea; font-family:Inter; font-size:13px');
+        console.log('%c✅ HIRE ME added with bold jumping animation on left & right of profile • Balloons still spawn from under Achievements', 'color:#667eea; font-family:Inter; font-size:13px');
     </script>
 </body>
 </html>
