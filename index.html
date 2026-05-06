@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdul Alahi — Blockchain Community Moderator &amp; Ambassador</title>
+    <title>Abdul Alahi - Blockchain Community Moderator</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
         * {
             margin: 0;
@@ -75,4 +75,1009 @@
             position: absolute;
             border-radius: 50%;
             filter: blur(80px);
-            opacity:
+            opacity: 0.3;
+            pointer-events: none;
+            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: transform;
+        }
+
+        .orb-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .orb1 {
+            width: 500px;
+            height: 500px;
+            top: -250px;
+            right: -250px;
+        }
+        .orb1 .orb-inner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            animation-delay: 0s;
+        }
+
+        .orb2 {
+            width: 400px;
+            height: 400px;
+            bottom: -200px;
+            left: -200px;
+        }
+        .orb2 .orb-inner {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            animation-delay: 5s;
+        }
+
+        .orb3 {
+            width: 350px;
+            height: 350px;
+            top: 50%;
+            left: 50%;
+        }
+        .orb3 .orb-inner {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(100px, -100px) scale(1.1); }
+            66% { transform: translate(-100px, 100px) scale(0.9); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .profile-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .profile-card:hover .profile-img {
+            transform: scale(1.06) rotate(4deg);
+        }
+
+        .profile-card h1 {
+            font-size: 48px;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(90deg, #fff, #667eea, #764ba2, #fff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 5s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .profile-card .location {
+            color: #888;
+            font-size: 16px;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-btn {
+            padding: 12px 24px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            font-size: 14px;
+        }
+
+        .social-btn:hover {
+            background: rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 10px 20px -5px rgba(102, 126, 234, 0.3);
+        }
+
+        .bio-section {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .bio-section:hover {
+            box-shadow: 0 20px 40px -10px rgba(102, 126, 234, 0.15);
+        }
+
+        .bio-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bio-section p {
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        /* New animated skills interface */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: transform;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 40%;
+            height: 300%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.15), transparent);
+            transform: skewX(-25deg);
+            animation: shimmer 4s linear infinite;
+            opacity: 0;
+        }
+
+        .skill-card:hover::before {
+            opacity: 1;
+            animation: shimmer 1.5s linear infinite;
+        }
+
+        @keyframes shimmer {
+            100% { transform: translateX(300%); }
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(102, 126, 234, 0.4);
+            box-shadow: 0 20px 30px -10px rgba(102, 126, 234, 0.2);
+        }
+
+        .skill-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-card p {
+            color: #888;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* New Projects Interface - Individual aesthetic X handles */
+        .projects-section {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .projects-section:hover {
+            box-shadow: 0 20px 40px -10px rgba(102, 126, 234, 0.15);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            padding: 24px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+            border-radius: 18px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px) scale(1.04);
+            border-color: #667eea;
+            box-shadow: 0 25px 35px -15px rgba(102, 126, 234, 0.3);
+        }
+
+        .project-card:hover::after {
+            opacity: 0.08;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .project-role {
+            font-size: 13px;
+            padding: 4px 12px;
+            background: rgba(102, 126, 234, 0.15);
+            color: #667eea;
+            border-radius: 9999px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .x-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0a0a0a;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 9999px;
+            border: 1px solid rgba(102, 126, 234, 0.4);
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 4px 15px -4px rgba(102, 126, 234, 0.3);
+        }
+
+        .x-btn:hover {
+            background: #667eea;
+            border-color: #667eea;
+            transform: scale(1.08) translateY(-2px);
+            box-shadow: 0 10px 25px -6px rgba(102, 126, 234, 0.5);
+        }
+
+        .x-btn span {
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .x-btn:hover span {
+            transform: rotate(360deg);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid #0a0a0a;
+            transition: all 0.4s ease;
+        }
+
+        .timeline-item:hover::before {
+            transform: scale(1.4);
+            background: #764ba2;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: transform;
+        }
+
+        .timeline-content:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateX(12px);
+            box-shadow: 0 20px 30px -10px rgba(102, 126, 234, 0.25);
+        }
+
+        .timeline-role {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .timeline-company {
+            color: #667eea;
+            font-size: 15px;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .timeline-period {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 12px;
+        }
+
+        .timeline-description {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .project-handles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px dashed rgba(255,255,255,0.1);
+        }
+
+        .achievements-list {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .achievements-list li {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 12px;
+            color: #aaa;
+            font-size: 14px;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            padding-left: 50px;
+            position: relative;
+        }
+
+        .achievements-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 20px;
+            color: #667eea;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .achievements-list li:hover {
+            transform: translateX(8px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .interest-tag {
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            font-size: 14px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .interest-tag:hover {
+            background: rgba(102, 126, 234, 0.25);
+            transform: scale(1.08);
+            border-color: #667eea;
+        }
+
+        /* New Goals section styling */
+        .goals-card {
+            background: linear-gradient(135deg, rgba(102,126,234,0.08), rgba(118,75,162,0.08));
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .goals-card::before {
+            content: '✦';
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            font-size: 120px;
+            opacity: 0.05;
+            color: #667eea;
+            animation: rotateSlow 25s linear infinite;
+        }
+
+        @keyframes rotateSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
+        }
+
+        footer p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            .profile-card {
+                padding: 40px 24px;
+            }
+
+            .profile-card h1 {
+                font-size: 28px;
+            }
+
+            .bio-section, .projects-section, .goals-card {
+                padding: 30px 24px;
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-links {
+                flex-direction: column;
+            }
+
+            .social-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .timeline {
+                padding-left: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <div class="grain"></div>
+    <div class="bg-gradient">
+        <div class="orb orb1"><div class="orb-inner"></div></div>
+        <div class="orb orb2"><div class="orb-inner"></div></div>
+        <div class="orb orb3"><div class="orb-inner"></div></div>
+    </div>
+
+    <div class="container">
+        <div class="profile-card">
+            <img src="https://i.postimg.cc/wxt4ZyhS/20250330-141247-00002.png" alt="Abdul Alahi" class="profile-img">
+            <h1>Abdul Alahi</h1>
+            <p class="location">📍 Dhaka, Bangladesh | ✉ mdabdulalahi2@gmail.com</p>
+            <div class="social-links">
+                <a href="https://x.com/itsyourabdul" target="_blank" class="social-btn">𝕏</a>
+                <a href="https://discord.com/users/itsyourabdul" target="_blank" class="social-btn">💬 Discord</a>
+            </div>
+        </div>
+
+        <div class="bio-section">
+            <h2>About Me</h2>
+            <p>Community Moderator with 4.5+ years of experience in blockchain ecosystems, specializing in decentralized technologies, privacy-first platforms, and community engagement.</p>
+            <p>I'm passionate about building inclusive communities where every voice matters. My work focuses on fostering trust through transparency, managing support channels efficiently, and translating complex technical concepts into accessible narratives that resonate with diverse audiences.</p>
+            <p>With deep expertise in ZK protocols, interoperability, and decentralized infrastructure, I bridge the gap between cutting-edge blockchain technology and the communities that power them.</p>
+        </div>
+
+        <!-- Updated Core Skills - New paragraph + individual animated categories -->
+        <section class="section">
+            <h2 class="section-title">Core Skills</h2>
+            <p style="color: #ccc; font-size: 16px; line-height: 1.8; margin-bottom: 32px; max-width: 780px;">
+                I specialize in building vibrant, inclusive communities that thrive on innovation and engagement. I’ve successfully managed and moderated diverse projects, ensuring that community voices are heard, questions are answered, and contributions are celebrated. My expertise spans ticket management, bot oversight, content creation, event organization, and interactive activities such as games that strengthen community bonds.
+            </p>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>🎟️ Ticket Management</h3>
+                    <p>Lightning-fast support ticket handling and resolution across thousands of members</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🤖 Bot Oversight</h3>
+                    <p>Advanced bot management, automation, and moderation systems for seamless operations</p>
+                </div>
+                <div class="skill-card">
+                    <h3>📝 Content Creation</h3>
+                    <p>Technical storytelling, visual content, and platform-optimized posts that drive engagement</p>
+                </div>
+                <div class="skill-card">
+                    <h3>📅 Event Organization</h3>
+                    <p>AMAs, workshops, giveaways, and large-scale community events</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🎮 Interactive Activities</h3>
+                    <p>Games, challenges, and bonding activities that build lasting community connection</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- New full interface: Individual aesthetic X Handles Projects -->
+        <section class="section">
+            <h2 class="section-title">My Communities &amp; Projects</h2>
+            <div class="projects-section">
+                <p style="color:#888; font-size:15px; margin-bottom:28px; text-align:center;">Click any 𝕏 handle below to connect directly — each card is a live portal into the ecosystems I help grow.</p>
+                <div class="projects-grid">
+
+                    <!-- Current Moderator -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-role">MODERATOR • 2023–Present</span>
+                        </div>
+                        <h3 style="margin-bottom:12px; font-size:19px;">T3RN</h3>
+                        <a href="https://x.com/t3rn_io" target="_blank" class="x-btn"><span>𝕏</span> @t3rn_io</a>
+                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Decentralized interoperability layer</p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-role">MODERATOR • 2023–Present</span>
+                        </div>
+                        <h3 style="margin-bottom:12px; font-size:19px;">wearebloopers</h3>
+                        <a href="https://x.com/wearebloopers" target="_blank" class="x-btn"><span>𝕏</span> @wearebloopers</a>
+                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Creative blockchain culture collective</p>
+                    </div>
+
+                    <!-- Ambassador Projects -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-role">AMBASSADOR • 2022–Present</span>
+                        </div>
+                        <h3 style="margin-bottom:12px; font-size:19px;">Polyhedra Network</h3>
+                        <a href="https://x.com/PolyhedraZK" target="_blank" class="x-btn"><span>𝕏</span> @PolyhedraZK</a>
+                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                        <p style="font-size:13px; color:#aaa; margin-top:12px;">ZK infrastructure &amp; cross-chain</p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-role">AMBASSADOR • 2022–Present</span>
+                        </div>
+                        <h3 style="margin-bottom:12px; font-size:19px;">Nillion</h3>
+                        <a href="https://x.com/nillionnetwork" target="_blank" class="x-btn"><span>𝕏</span> @nillionnetwork</a>
+                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Blind computation network</p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-role">AMBASSADOR • 2022–Present</span>
+                        </div>
+                        <h3 style="margin-bottom:12px; font-size:19px;">Midnight</h3>
+                        <a href="https://x.com/MidnightNtwrk" target="_blank" class="x-btn"><span>𝕏</span> @MidnightNtwrk</a>
+                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Privacy-first smart contracts</p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-role">AMBASSADOR • 2022–Present</span>
+                        </div>
+                        <h3 style="margin-bottom:12px; font-size:19px;">Spaace</h3>
+                        <a href="https://x.com/spaace_io" target="_blank" class="x-btn"><span>𝕏</span> @spaace_io</a>
+                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Decentralized spatial computing</p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-role">AMBASSADOR • 2022–Present</span>
+                        </div>
+                        <h3 style="margin-bottom:12px; font-size:19px;">Nesa</h3>
+                        <a href="https://x.com/nesaorg" target="_blank" class="x-btn"><span>𝕏</span> @nesaorg</a>
+                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Decentralized AI inference</p>
+                    </div>
+
+                    <!-- Previous Contributor -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-role">CONTRIBUTOR • 2021–2023</span>
+                        </div>
+                        <h3 style="margin-bottom:12px; font-size:19px;">zkLink</h3>
+                        <a href="https://x.com/zkLink_Official" target="_blank" class="x-btn"><span>𝕏</span> @zkLink_Official</a>
+                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Omnichain zk-Rollup aggregation</p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-role">CONTRIBUTOR • 2021–2023</span>
+                        </div>
+                        <h3 style="margin-bottom:12px; font-size:19px;">375ai</h3>
+                        <a href="https://x.com/375ai_" target="_blank" class="x-btn"><span>𝕏</span> @375ai_</a>
+                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                        <p style="font-size:13px; color:#aaa; margin-top:12px;">AI-powered blockchain tools</p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-role">CONTRIBUTOR • 2021–2023</span>
+                        </div>
+                        <h3 style="margin-bottom:12px; font-size:19px;">Hyperbolic</h3>
+                        <a href="https://x.com/hyperbolic_labs" target="_blank" class="x-btn"><span>𝕏</span> @hyperbolic_labs</a>
+                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Decentralized compute marketplace</p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-role">CONTRIBUTOR • 2021–2023</span>
+                        </div>
+                        <h3 style="margin-bottom:12px; font-size:19px;">PIP</h3>
+                        <a href="https://x.com/getpipcom" target="_blank" class="x-btn"><span>𝕏</span> @getpipcom</a>
+                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Permissionless payment infrastructure</p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-role">CONTRIBUTOR • 2021–2023</span>
+                        </div>
+                        <h3 style="margin-bottom:12px; font-size:19px;">Ambrus Studio</h3>
+                        <a href="https://x.com/AmbrusStudio" target="_blank" class="x-btn"><span>𝕏</span> @AmbrusStudio</a>
+                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Web3 gaming &amp; entertainment</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+
+                <!-- Current Moderator (kept compact) -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-role">Moderator</div>
+                        <div class="timeline-company">T3RN &amp; wearebloopers</div>
+                        <div class="timeline-period">2023 – Present</div>
+                        <div class="timeline-description">
+                            Managing vibrant Discord and Telegram communities with thousands of members. Resolving support tickets efficiently, facilitating AMA sessions, and collaborating with core teams.
+                        </div>
+                        <div class="project-handles">
+                            <a href="https://x.com/t3rn_io" target="_blank" class="x-btn"><span>𝕏</span> @t3rn_io</a>
+                            <a href="https://x.com/wearebloopers" target="_blank" class="x-btn"><span>𝕏</span> @wearebloopers</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ambassador -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-role">Ambassador</div>
+                        <div class="timeline-company">Polyhedra • Nillion • Midnight • Spaace • Nesa</div>
+                        <div class="timeline-period">2022 – Present</div>
+                        <div class="timeline-description">
+                            Promoting privacy-first and ZK-based technologies across social platforms. Creating tailored content and driving adoption.
+                        </div>
+                        <div class="project-handles">
+                            <a href="https://x.com/PolyhedraZK" target="_blank" class="x-btn"><span>𝕏</span> @PolyhedraZK</a>
+                            <a href="https://x.com/nillionnetwork" target="_blank" class="x-btn"><span>𝕏</span> @nillionnetwork</a>
+                            <a href="https://x.com/MidnightNtwrk" target="_blank" class="x-btn"><span>𝕏</span> @MidnightNtwrk</a>
+                            <a href="https://x.com/spaace_io" target="_blank" class="x-btn"><span>𝕏</span> @spaace_io</a>
+                            <a href="https://x.com/nesaorg" target="_blank" class="x-btn"><span>𝕏</span> @nesaorg</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Previous Contributor -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-role">Previous Contributor</div>
+                        <div class="timeline-company">zkLink • 375ai • Hyperbolic • PIP • Ambrus Studio</div>
+                        <div class="timeline-period">2021 – 2023</div>
+                        <div class="timeline-description">
+                            Supporting early-stage community growth, onboarding, and strategic feedback across multiple blockchain projects.
+                        </div>
+                        <div class="project-handles">
+                            <a href="https://x.com/zkLink_Official" target="_blank" class="x-btn"><span>𝕏</span> @zkLink_Official</a>
+                            <a href="https://x.com/375ai_" target="_blank" class="x-btn"><span>𝕏</span> @375ai_</a>
+                            <a href="https://x.com/hyperbolic_labs" target="_blank" class="x-btn"><span>𝕏</span> @hyperbolic_labs</a>
+                            <a href="https://x.com/getpipcom" target="_blank" class="x-btn"><span>𝕏</span> @getpipcom</a>
+                            <a href="https://x.com/AmbrusStudio" target="_blank" class="x-btn"><span>𝕏</span> @AmbrusStudio</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Achievements</h2>
+            <ul class="achievements-list">
+                <li>Built and sustained high-engagement communities across multiple blockchain projects</li>
+                <li>Recognized for rapid response times and empathetic moderation style</li>
+                <li>Amplified positive sentiment and resilience during critical project pivots</li>
+                <li>Delivered platform-optimized content with strong visual identity</li>
+            </ul>
+        </section>
+
+        <!-- New Goals Interface -->
+        <section class="section">
+            <h2 class="section-title">Community Goals</h2>
+            <div class="goals-card">
+                <p style="color:#ddd; font-size:16px; line-height:1.85;">
+                    I’ve contributed to and managed multiple communities, consistently delivering excellent results in fostering trust, clarity, and collaboration. My goal is to continue leveraging my communication and organizational skills in a role where I can amplify community impact, drive engagement, and support projects that value authenticity and innovation.
+                </p>
+                <div style="margin-top:28px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+                    <span style="background:rgba(255,255,255,0.1); padding:6px 16px; border-radius:9999px; font-size:13px; color:#ccc;">Trust First</span>
+                    <span style="background:rgba(255,255,255,0.1); padding:6px 16px; border-radius:9999px; font-size:13px; color:#ccc;">Clarity &amp; Transparency</span>
+                    <span style="background:rgba(255,255,255,0.1); padding:6px 16px; border-radius:9999px; font-size:13px; color:#ccc;">Authentic Engagement</span>
+                    <span style="background:rgba(255,255,255,0.1); padding:6px 16px; border-radius:9999px; font-size:13px; color:#ccc;">Long-term Impact</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Interests</h2>
+            <div class="interests-grid">
+                <div class="interest-tag">🔐 Universal ZK Protocols</div>
+                <div class="interest-tag">💻 Decentralized Computing</div>
+                <div class="interest-tag">🗳️ Community-Led Governance</div>
+                <div class="interest-tag">🤖 AI × Blockchain</div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 Abdul Alahi. Building the future of decentralized communities.</p>
+        </footer>
+    </div>
+
+    <script>
+        // 3D Tilt Effect (existing + extended to new project cards)
+        document.querySelectorAll('.skill-card, .timeline-content, .project-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = (y - centerY) / 12;
+                const rotateY = (centerX - x) / 12;
+
+                card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0)`;
+            });
+        });
+
+        // Custom Cursor (unchanged)
+        const cursor = document.querySelector('.cursor');
+        const follower = document.querySelector('.cursor-follower');
+        let mouseX = 0, mouseY = 0;
+        let followerX = 0, followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.transform = `translate3d(${mouseX - 4}px, ${mouseY - 4}px, 0)`;
+        });
+
+        function animateFollower() {
+            followerX += (mouseX - followerX - 20) * 0.12;
+            followerY += (mouseY - followerY - 20) * 0.12;
+            follower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0)`;
+            requestAnimationFrame(animateFollower);
+        }
+        animateFollower();
+
+        // Cursor scale on interactive elements (extended to new x-btn and project cards)
+        document.querySelectorAll('a, .skill-card, .timeline-content, .interest-tag, .social-btn, .x-btn, .project-card').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                follower.style.width = '80px';
+                follower.style.height = '80px';
+                follower.style.background = 'rgba(255, 255, 255, 0.12)';
+                follower.style.border = '1px solid rgba(102, 126, 234, 0.6)';
+            });
+            el.addEventListener('mouseleave', () => {
+                follower.style.width = '40px';
+                follower.style.height = '40px';
+                follower.style.background = 'none';
+                follower.style.border = '1px solid rgba(255, 255, 255, 0.5)';
+            });
+        });
+
+        // Parallax Orbs (unchanged)
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX - window.innerWidth / 2) / window.innerWidth;
+            const y = (e.clientY - window.innerHeight / 2) / window.innerHeight;
+
+            document.querySelectorAll('.orb').forEach((orb, index) => {
+                const factor = (index + 1) * 45;
+                orb.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+            });
+        });
+
+        // Intersection Observer for scroll animations (with stagger)
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Animate sections & new projects
+        const containers = ['.skills-grid', '.projects-grid', '.timeline', '.achievements-list', '.interests-grid'];
+        containers.forEach(selector => {
+            const container = document.querySelector(selector);
+            if (container) {
+                const children = container.children;
+                Array.from(children).forEach((child, index) => {
+                    child.style.opacity = '0';
+                    child.style.transform = 'translateY(30px)';
+                    child.style.transition = `opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1), transform 0.9s cubic-bezier(0.23, 1, 0.32, 1)`;
+                    child.style.transitionDelay = `${index * 0.08}s`;
+                    observer.observe(child);
+                });
+            }
+        });
+
+        // Profile, Bio & Goals entrance
+        document.querySelectorAll('.profile-card, .bio-section, .goals-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 1s cubic-bezier(0.23, 1, 0.32, 1), transform 1s cubic-bezier(0.23, 1, 0.32, 1)';
+            observer.observe(el);
+        });
+
+        console.log('%c✅ Portfolio upgraded with new animated Core Skills interface, full individual aesthetic X handle project cards, and dedicated Community Goals section. Hover & scroll for magic!', 'color:#667eea; font-family:Inter; font-size:13px');
+    </script>
+</body>
+</html>
