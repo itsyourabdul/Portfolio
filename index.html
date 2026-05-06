@@ -128,7 +128,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 60px 20px;
             position: relative;
@@ -353,15 +353,15 @@
             line-height: 1.6;
         }
 
-        /* New Projects Interface - Individual aesthetic X handles */
+        /* Projects Section - Now in right column with scroll */
         .projects-section {
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(40px);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 24px;
             padding: 40px;
-            margin-bottom: 40px;
             transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            height: 100%;
         }
 
         .projects-section:hover {
@@ -537,6 +537,43 @@
             to { transform: rotate(360deg); }
         }
 
+        /* Two-column layout */
+        .content-wrapper {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .left-column {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .right-column {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .right-column .projects-section {
+            flex: 1;
+            max-height: 1100px;
+            overflow-y: auto;
+            padding-right: 12px;
+            scrollbar-width: thin;
+            scrollbar-color: #667eea rgba(255,255,255,0.1);
+        }
+
+        .right-column .projects-section::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .right-column .projects-section::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 20px;
+        }
+
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -580,6 +617,15 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .content-wrapper {
+                flex-direction: column;
+            }
+
+            .right-column .projects-section {
+                max-height: none;
+                overflow-y: visible;
+            }
         }
     </style>
 </head>
@@ -608,217 +654,230 @@
             <h2>About Me</h2>
             <p>Passionate Blockchain Community Moderator with 4.5+ years crafting dynamic ecosystems around cutting-edge decentralized technologies and privacy-first innovations.</p>
             <p>I excel at turning technical complexity into clear, engaging conversations while building inclusive spaces where every member feels empowered to contribute.</p>
-            <p>With a focus on ZK protocols, interoperability, and decentralized infrastructure, I’m driven to connect communities with the future of Web3.</p>
         </div>
 
-        <!-- Updated Core Skills - New paragraph + individual animated categories -->
-        <section class="section">
-            <h2 class="section-title">Core Skills</h2>
-            <p style="color: #ccc; font-size: 16px; line-height: 1.8; margin-bottom: 32px; max-width: 780px;">
-                I specialize in building vibrant, inclusive communities that thrive on innovation and engagement. I’ve successfully managed and moderated diverse projects, ensuring that community voices are heard, questions are answered, and contributions are celebrated. My expertise spans ticket management, bot oversight, content creation, event organization, and interactive activities such as games that strengthen community bonds.
-            </p>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>🎟️ Ticket Management</h3>
-                    <p>Lightning-fast support ticket handling and resolution across thousands of members</p>
-                </div>
-                <div class="skill-card">
-                    <h3>🤖 Bot Oversight</h3>
-                    <p>Advanced bot management, automation, and moderation systems for seamless operations</p>
-                </div>
-                <div class="skill-card">
-                    <h3>📝 Content Creation</h3>
-                    <p>Technical storytelling, visual content, and platform-optimized posts that drive engagement</p>
-                </div>
-                <div class="skill-card">
-                    <h3>📅 Event Organization</h3>
-                    <p>AMAs, workshops, giveaways, and large-scale community events</p>
-                </div>
-                <div class="skill-card">
-                    <h3>🎮 Interactive Activities</h3>
-                    <p>Games, challenges, and bonding activities that build lasting community connection</p>
-                </div>
+        <!-- Two-column professional layout -->
+        <div class="content-wrapper">
+            
+            <!-- LEFT COLUMN -->
+            <div class="left-column">
+
+                <!-- Core Skills -->
+                <section class="section">
+                    <h2 class="section-title">Core Skills</h2>
+                    <p style="color: #ccc; font-size: 16px; line-height: 1.8; margin-bottom: 32px; max-width: 780px;">
+                        I specialize in building vibrant, inclusive communities that thrive on innovation and engagement. I’ve successfully managed and moderated diverse projects, ensuring that community voices are heard, questions are answered, and contributions are celebrated. My expertise spans ticket management, bot oversight, content creation, event organization, and interactive activities such as games that strengthen community bonds.
+                    </p>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <h3>🎟️ Ticket Management</h3>
+                            <p>Lightning-fast support ticket handling and resolution across thousands of members</p>
+                        </div>
+                        <div class="skill-card">
+                            <h3>🤖 Bot Oversight</h3>
+                            <p>Advanced bot management, automation, and moderation systems for seamless operations</p>
+                        </div>
+                        <div class="skill-card">
+                            <h3>📝 Content Creation</h3>
+                            <p>Technical storytelling, visual content, and platform-optimized posts that drive engagement</p>
+                        </div>
+                        <div class="skill-card">
+                            <h3>📅 Event Organization</h3>
+                            <p>AMAs, workshops, giveaways, and large-scale community events</p>
+                        </div>
+                        <div class="skill-card">
+                            <h3>🎮 Interactive Activities</h3>
+                            <p>Games, challenges, and bonding activities that build lasting community connection</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Community Goals (moved above Achievements) -->
+                <section class="section">
+                    <h2 class="section-title">Community Goals</h2>
+                    <div class="goals-card">
+                        <p style="color:#ddd; font-size:16px; line-height:1.85;">
+                            I’ve contributed to and managed multiple communities, consistently delivering excellent results in fostering trust, clarity, and collaboration. My goal is to continue leveraging my communication and organizational skills in a role where I can amplify community impact, drive engagement, and support projects that value authenticity and innovation.
+                        </p>
+                        <div style="margin-top:28px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+                            <span style="background:rgba(255,255,255,0.1); padding:6px 16px; border-radius:9999px; font-size:13px; color:#ccc;">Trust First</span>
+                            <span style="background:rgba(255,255,255,0.1); padding:6px 16px; border-radius:9999px; font-size:13px; color:#ccc;">Clarity &amp; Transparency</span>
+                            <span style="background:rgba(255,255,255,0.1); padding:6px 16px; border-radius:9999px; font-size:13px; color:#ccc;">Authentic Engagement</span>
+                            <span style="background:rgba(255,255,255,0.1); padding:6px 16px; border-radius:9999px; font-size:13px; color:#ccc;">Long-term Impact</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Achievements -->
+                <section class="section">
+                    <h2 class="section-title">Achievements</h2>
+                    <ul class="achievements-list">
+                        <li>Built and sustained high-engagement communities across multiple blockchain projects</li>
+                        <li>Recognized for rapid response times and empathetic moderation style</li>
+                        <li>Amplified positive sentiment and resilience during critical project pivots</li>
+                        <li>Delivered platform-optimized content with strong visual identity</li>
+                    </ul>
+                </section>
+
+                <!-- Interests -->
+                <section class="section">
+                    <h2 class="section-title">Interests</h2>
+                    <div class="interests-grid">
+                        <div class="interest-tag">💬 Discord</div>
+                        <div class="interest-tag">𝕏 X</div>
+                        <div class="interest-tag">📬 Telegram</div>
+                        <div class="interest-tag">🤖 AI</div>
+                        <div class="interest-tag">🌍 Travelling</div>
+                    </div>
+                </section>
+
+                <!-- Languages -->
+                <section class="section">
+                    <h2 class="section-title">Languages</h2>
+                    <div class="interests-grid">
+                        <div class="interest-tag">🇧🇩 Bangla (Native)</div>
+                        <div class="interest-tag">🇬🇧 English (Fluent)</div>
+                        <div class="interest-tag">🇮🇳 Hindi (Fluent)</div>
+                    </div>
+                </section>
+
             </div>
-        </section>
 
-        <!-- New full interface: Individual aesthetic X Handles Projects -->
-        <section class="section">
-            <h2 class="section-title">My Communities &amp; Projects</h2>
-            <div class="projects-section">
-                <p style="color:#888; font-size:15px; margin-bottom:28px; text-align:center;">Click any 𝕏 handle below to connect directly — each card is a live portal into the ecosystems I help grow.</p>
-                <div class="projects-grid">
+            <!-- RIGHT COLUMN - My Communities & Projects (scrollable) -->
+            <div class="right-column">
+                <section class="section">
+                    <h2 class="section-title">My Communities &amp; Projects</h2>
+                    <div class="projects-section">
+                        <p style="color:#888; font-size:15px; margin-bottom:28px; text-align:center;">Click any 𝕏 handle below to connect directly — each card is a live portal into the ecosystems I help grow.</p>
+                        <div class="projects-grid">
 
-                    <!-- Current Moderator -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-role">MODERATOR • 2023–Present</span>
+                            <!-- ABOVE GROUP (Polyhedra, Nillion, Midnight, Spaace, zkLink, Nesa) -->
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <span class="project-role">AMBASSADOR • 2022–Present</span>
+                                </div>
+                                <h3 style="margin-bottom:12px; font-size:19px;">Polyhedra Network</h3>
+                                <a href="https://x.com/PolyhedraZK" target="_blank" class="x-btn"><span>𝕏</span> @PolyhedraZK</a>
+                                <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                                <p style="font-size:13px; color:#aaa; margin-top:12px;">ZK infrastructure &amp; cross-chain</p>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <span class="project-role">AMBASSADOR • 2022–Present</span>
+                                </div>
+                                <h3 style="margin-bottom:12px; font-size:19px;">Nillion</h3>
+                                <a href="https://x.com/nillionnetwork" target="_blank" class="x-btn"><span>𝕏</span> @nillionnetwork</a>
+                                <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                                <p style="font-size:13px; color:#aaa; margin-top:12px;">Blind computation network</p>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <span class="project-role">AMBASSADOR • 2025–Present</span>
+                                </div>
+                                <h3 style="margin-bottom:12px; font-size:19px;">Midnight</h3>
+                                <a href="https://x.com/MidnightNtwrk" target="_blank" class="x-btn"><span>𝕏</span> @MidnightNtwrk</a>
+                                <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                                <p style="font-size:13px; color:#aaa; margin-top:12px;">Privacy-first smart contracts</p>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <span class="project-role">AMBASSADOR • 2025–Present</span>
+                                </div>
+                                <h3 style="margin-bottom:12px; font-size:19px;">Spaace</h3>
+                                <a href="https://x.com/spaace_io" target="_blank" class="x-btn"><span>𝕏</span> @spaace_io</a>
+                                <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                                <p style="font-size:13px; color:#aaa; margin-top:12px;">Decentralized spatial computing</p>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <span class="project-role">AMBASSADOR • 2022–Present</span>
+                                </div>
+                                <h3 style="margin-bottom:12px; font-size:19px;">Nesa</h3>
+                                <a href="https://x.com/nesaorg" target="_blank" class="x-btn"><span>𝕏</span> @nesaorg</a>
+                                <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                                <p style="font-size:13px; color:#aaa; margin-top:12px;">Decentralized AI inference</p>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <span class="project-role">MODERATOR • 2021–2023</span>
+                                </div>
+                                <h3 style="margin-bottom:12px; font-size:19px;">zkLink</h3>
+                                <a href="https://x.com/zkLink_Official" target="_blank" class="x-btn"><span>𝕏</span> @zkLink_Official</a>
+                                <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                                <p style="font-size:13px; color:#aaa; margin-top:12px;">Omnichain zk-Rollup aggregation</p>
+                            </div>
+
+                            <!-- BELOW GROUP (remaining projects) -->
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <span class="project-role">MODERATOR • 2023–Present</span>
+                                </div>
+                                <h3 style="margin-bottom:12px; font-size:19px;">T3RN</h3>
+                                <a href="https://x.com/t3rn_io" target="_blank" class="x-btn"><span>𝕏</span> @t3rn_io</a>
+                                <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                                <p style="font-size:13px; color:#aaa; margin-top:12px;">Decentralized interoperability layer</p>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <span class="project-role">MODERATOR • 2023–Present</span>
+                                </div>
+                                <h3 style="margin-bottom:12px; font-size:19px;">wearebloopers</h3>
+                                <a href="https://x.com/wearebloopers" target="_blank" class="x-btn"><span>𝕏</span> @wearebloopers</a>
+                                <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                                <p style="font-size:13px; color:#aaa; margin-top:12px;">Creative blockchain culture collective</p>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <span class="project-role">MODERATOR • 2024–2025</span>
+                                </div>
+                                <h3 style="margin-bottom:12px; font-size:19px;">375ai</h3>
+                                <a href="https://x.com/375ai_" target="_blank" class="x-btn"><span>𝕏</span> @375ai_</a>
+                                <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                                <p style="font-size:13px; color:#aaa; margin-top:12px;">AI-powered blockchain tools</p>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <span class="project-role">MODERATOR • 2021–2023</span>
+                                </div>
+                                <h3 style="margin-bottom:12px; font-size:19px;">Hyperbolic</h3>
+                                <a href="https://x.com/hyperbolic_labs" target="_blank" class="x-btn"><span>𝕏</span> @hyperbolic_labs</a>
+                                <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                                <p style="font-size:13px; color:#aaa; margin-top:12px;">Decentralized compute marketplace</p>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <span class="project-role">MODERATOR • 2021–2023</span>
+                                </div>
+                                <h3 style="margin-bottom:12px; font-size:19px;">PIP</h3>
+                                <a href="https://x.com/getpipcom" target="_blank" class="x-btn"><span>𝕏</span> @getpipcom</a>
+                                <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                                <p style="font-size:13px; color:#aaa; margin-top:12px;">Permissionless payment infrastructure</p>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <span class="project-role">MODERATOR • 2021–2023</span>
+                                </div>
+                                <h3 style="margin-bottom:12px; font-size:19px;">Ambrus Studio</h3>
+                                <a href="https://x.com/AmbrusStudio" target="_blank" class="x-btn"><span>𝕏</span> @AmbrusStudio</a>
+                                <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
+                                <p style="font-size:13px; color:#aaa; margin-top:12px;">Web3 gaming &amp; entertainment</p>
+                            </div>
+
                         </div>
-                        <h3 style="margin-bottom:12px; font-size:19px;">T3RN</h3>
-                        <a href="https://x.com/t3rn_io" target="_blank" class="x-btn"><span>𝕏</span> @t3rn_io</a>
-                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
-                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Decentralized interoperability layer</p>
                     </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-role">MODERATOR • 2023–Present</span>
-                        </div>
-                        <h3 style="margin-bottom:12px; font-size:19px;">wearebloopers</h3>
-                        <a href="https://x.com/wearebloopers" target="_blank" class="x-btn"><span>𝕏</span> @wearebloopers</a>
-                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
-                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Creative blockchain culture collective</p>
-                    </div>
-
-                    <!-- Ambassador Projects -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-role">AMBASSADOR • 2022–Present</span>
-                        </div>
-                        <h3 style="margin-bottom:12px; font-size:19px;">Polyhedra Network</h3>
-                        <a href="https://x.com/PolyhedraZK" target="_blank" class="x-btn"><span>𝕏</span> @PolyhedraZK</a>
-                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
-                        <p style="font-size:13px; color:#aaa; margin-top:12px;">ZK infrastructure &amp; cross-chain</p>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-role">AMBASSADOR • 2022–Present</span>
-                        </div>
-                        <h3 style="margin-bottom:12px; font-size:19px;">Nillion</h3>
-                        <a href="https://x.com/nillionnetwork" target="_blank" class="x-btn"><span>𝕏</span> @nillionnetwork</a>
-                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
-                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Blind computation network</p>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-role">AMBASSADOR • 2025–Present</span>
-                        </div>
-                        <h3 style="margin-bottom:12px; font-size:19px;">Midnight</h3>
-                        <a href="https://x.com/MidnightNtwrk" target="_blank" class="x-btn"><span>𝕏</span> @MidnightNtwrk</a>
-                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
-                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Privacy-first smart contracts</p>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-role">AMBASSADOR • 2025–Present</span>
-                        </div>
-                        <h3 style="margin-bottom:12px; font-size:19px;">Spaace</h3>
-                        <a href="https://x.com/spaace_io" target="_blank" class="x-btn"><span>𝕏</span> @spaace_io</a>
-                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
-                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Decentralized spatial computing</p>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-role">AMBASSADOR • 2022–Present</span>
-                        </div>
-                        <h3 style="margin-bottom:12px; font-size:19px;">Nesa</h3>
-                        <a href="https://x.com/nesaorg" target="_blank" class="x-btn"><span>𝕏</span> @nesaorg</a>
-                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
-                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Decentralized AI inference</p>
-                    </div>
-
-                    <!-- Previous Contributor -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-role">CONTRIBUTOR • 2021–2023</span>
-                        </div>
-                        <h3 style="margin-bottom:12px; font-size:19px;">zkLink</h3>
-                        <a href="https://x.com/zkLink_Official" target="_blank" class="x-btn"><span>𝕏</span> @zkLink_Official</a>
-                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
-                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Omnichain zk-Rollup aggregation</p>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-role">CONTRIBUTOR • 2021–2023</span>
-                        </div>
-                        <h3 style="margin-bottom:12px; font-size:19px;">375ai</h3>
-                        <a href="https://x.com/375ai_" target="_blank" class="x-btn"><span>𝕏</span> @375ai_</a>
-                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
-                        <p style="font-size:13px; color:#aaa; margin-top:12px;">AI-powered blockchain tools</p>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-role">CONTRIBUTOR • 2021–2023</span>
-                        </div>
-                        <h3 style="margin-bottom:12px; font-size:19px;">Hyperbolic</h3>
-                        <a href="https://x.com/hyperbolic_labs" target="_blank" class="x-btn"><span>𝕏</span> @hyperbolic_labs</a>
-                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
-                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Decentralized compute marketplace</p>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-role">CONTRIBUTOR • 2021–2023</span>
-                        </div>
-                        <h3 style="margin-bottom:12px; font-size:19px;">PIP</h3>
-                        <a href="https://x.com/getpipcom" target="_blank" class="x-btn"><span>𝕏</span> @getpipcom</a>
-                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
-                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Permissionless payment infrastructure</p>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-role">CONTRIBUTOR • 2021–2023</span>
-                        </div>
-                        <h3 style="margin-bottom:12px; font-size:19px;">Ambrus Studio</h3>
-                        <a href="https://x.com/AmbrusStudio" target="_blank" class="x-btn"><span>𝕏</span> @AmbrusStudio</a>
-                        <div style="margin-top:18px; height:1px; background:rgba(255,255,255,0.1);"></div>
-                        <p style="font-size:13px; color:#aaa; margin-top:12px;">Web3 gaming &amp; entertainment</p>
-                    </div>
-                </div>
+                </section>
             </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Achievements</h2>
-            <ul class="achievements-list">
-                <li>Built and sustained high-engagement communities across multiple blockchain projects</li>
-                <li>Recognized for rapid response times and empathetic moderation style</li>
-                <li>Amplified positive sentiment and resilience during critical project pivots</li>
-                <li>Delivered platform-optimized content with strong visual identity</li>
-            </ul>
-        </section>
-
-        <!-- New Goals Interface -->
-        <section class="section">
-            <h2 class="section-title">Community Goals</h2>
-            <div class="goals-card">
-                <p style="color:#ddd; font-size:16px; line-height:1.85;">
-                    I’ve contributed to and managed multiple communities, consistently delivering excellent results in fostering trust, clarity, and collaboration. My goal is to continue leveraging my communication and organizational skills in a role where I can amplify community impact, drive engagement, and support projects that value authenticity and innovation.
-                </p>
-                <div style="margin-top:28px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-                    <span style="background:rgba(255,255,255,0.1); padding:6px 16px; border-radius:9999px; font-size:13px; color:#ccc;">Trust First</span>
-                    <span style="background:rgba(255,255,255,0.1); padding:6px 16px; border-radius:9999px; font-size:13px; color:#ccc;">Clarity &amp; Transparency</span>
-                    <span style="background:rgba(255,255,255,0.1); padding:6px 16px; border-radius:9999px; font-size:13px; color:#ccc;">Authentic Engagement</span>
-                    <span style="background:rgba(255,255,255,0.1); padding:6px 16px; border-radius:9999px; font-size:13px; color:#ccc;">Long-term Impact</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Interests</h2>
-            <div class="interests-grid">
-                <div class="interest-tag">💬 Discord</div>
-                <div class="interest-tag">𝕏 X</div>
-                <div class="interest-tag">📬 Telegram</div>
-                <div class="interest-tag">🤖 AI</div>
-                <div class="interest-tag">🌍 Travelling</div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Languages</h2>
-            <div class="interests-grid">
-                <div class="interest-tag">🇧🇩 Bangla (Native)</div>
-                <div class="interest-tag">🇬🇧 English (Fluent)</div>
-                <div class="interest-tag">🇮🇳 Hindi (Fluent)</div>
-            </div>
-        </section>
+        </div>
 
         <footer>
             <p>© 2026 Abdul Alahi. Building the future of decentralized communities.</p>
@@ -933,7 +992,7 @@
             observer.observe(el);
         });
 
-        console.log('%c✅ Portfolio upgraded with new animated Core Skills interface, full individual aesthetic X handle project cards, and dedicated Community Goals section. Hover & scroll for magic!', 'color:#667eea; font-family:Inter; font-size:13px');
+        console.log('%c✅ Portfolio upgraded with new animated Core Skills interface, full individual aesthetic X handle project cards, dedicated Community Goals section, two-column professional layout, and scrollable right-side projects panel. Hover & scroll for magic!', 'color:#667eea; font-family:Inter; font-size:13px');
     </script>
 </body>
 </html>
