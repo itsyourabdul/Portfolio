@@ -20,6 +20,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             cursor: none;
+            scroll-behavior: smooth;
         }
 
         .cursor {
@@ -30,7 +31,7 @@
             position: fixed;
             pointer-events: none;
             z-index: 9999;
-            transition: transform 0.1s ease;
+            transition: transform 0.08s cubic-bezier(0.23, 1, 0.32, 1);
             mix-blend-mode: difference;
         }
 
@@ -42,7 +43,10 @@
             position: fixed;
             pointer-events: none;
             z-index: 9998;
-            transition: transform 0.2s ease, background 0.3s ease, width 0.3s ease, height 0.3s ease;
+            transition: transform 0.18s cubic-bezier(0.23, 1, 0.32, 1), 
+                        background 0.3s ease, 
+                        width 0.3s cubic-bezier(0.23, 1, 0.32, 1), 
+                        height 0.3s cubic-bezier(0.23, 1, 0.32, 1);
             mix-blend-mode: difference;
         }
 
@@ -74,6 +78,7 @@
             opacity: 0.3;
             pointer-events: none;
             transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: transform;
         }
 
         .orb-inner {
@@ -140,6 +145,11 @@
             position: relative;
             overflow: hidden;
             margin-bottom: 40px;
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .profile-card:hover {
+            transform: translateY(-4px);
         }
 
         .profile-card::before {
@@ -163,6 +173,11 @@
             margin-bottom: 24px;
             position: relative;
             z-index: 1;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .profile-card:hover .profile-img {
+            transform: scale(1.06) rotate(4deg);
         }
 
         .profile-card h1 {
@@ -207,14 +222,15 @@
             gap: 8px;
             color: #fff;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
             font-size: 14px;
         }
 
         .social-btn:hover {
             background: rgba(102, 126, 234, 0.2);
             border-color: #667eea;
-            transform: translateY(-2px);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 10px 20px -5px rgba(102, 126, 234, 0.3);
         }
 
         .bio-section {
@@ -224,6 +240,11 @@
             border-radius: 24px;
             padding: 40px;
             margin-bottom: 40px;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .bio-section:hover {
+            box-shadow: 0 20px 40px -10px rgba(102, 126, 234, 0.15);
         }
 
         .bio-section h2 {
@@ -282,12 +303,14 @@
             border-radius: 16px;
             padding: 24px;
             transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: transform;
         }
 
         .skill-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-8px);
             background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(102, 126, 234, 0.3);
+            border-color: rgba(102, 126, 234, 0.4);
+            box-shadow: 0 20px 30px -10px rgba(102, 126, 234, 0.2);
         }
 
         .skill-card h3 {
@@ -333,6 +356,12 @@
             border-radius: 50%;
             background: #667eea;
             border: 3px solid #0a0a0a;
+            transition: all 0.4s ease;
+        }
+
+        .timeline-item:hover::before {
+            transform: scale(1.4);
+            background: #764ba2;
         }
 
         .timeline-content {
@@ -342,11 +371,13 @@
             border-radius: 16px;
             padding: 24px;
             transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: transform;
         }
 
         .timeline-content:hover {
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateX(8px);
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateX(12px);
+            box-shadow: 0 20px 30px -10px rgba(102, 126, 234, 0.25);
         }
 
         .timeline-role {
@@ -357,8 +388,21 @@
 
         .timeline-company {
             color: #667eea;
-            font-size: 14px;
+            font-size: 15px;
             margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .project-link {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .project-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+            text-underline-offset: 3px;
         }
 
         .timeline-period {
@@ -387,7 +431,7 @@
             margin-bottom: 12px;
             color: #aaa;
             font-size: 14px;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
             padding-left: 50px;
             position: relative;
         }
@@ -404,6 +448,7 @@
         .achievements-list li:hover {
             transform: translateX(8px);
             background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(102, 126, 234, 0.3);
         }
 
         .interests-grid {
@@ -420,12 +465,13 @@
             padding: 16px;
             text-align: center;
             font-size: 14px;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         .interest-tag:hover {
-            background: rgba(102, 126, 234, 0.2);
-            transform: scale(1.05);
+            background: rgba(102, 126, 234, 0.25);
+            transform: scale(1.08);
+            border-color: #667eea;
         }
 
         footer {
@@ -470,6 +516,10 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .timeline {
+                padding-left: 24px;
+            }
         }
     </style>
 </head>
@@ -489,7 +539,7 @@
             <h1>Abdul Alahi</h1>
             <p class="location">📍 Dhaka, Bangladesh | ✉ mdabdulalahi2@gmail.com</p>
             <div class="social-links">
-                <a href="https://x.com/itsyourabdul" target="_blank" class="social-btn">𝕏 Twitter</a>
+                <a href="https://x.com/itsyourabdul" target="_blank" class="social-btn">𝕏</a>
                 <a href="https://discord.com/users/itsyourabdul" target="_blank" class="social-btn">💬 Discord</a>
             </div>
         </div>
@@ -534,21 +584,33 @@
         <section class="section">
             <h2 class="section-title">Experience</h2>
             <div class="timeline">
+
+                <!-- Current Moderator -->
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-role">Moderator</div>
-                        <div class="timeline-company">T3RN • 375ai • Bloopers</div>
+                        <div class="timeline-company">
+                            T3RN <a href="https://x.com/t3rn_io" target="_blank" class="project-link">@t3rn_io</a> • 
+                            wearebloopers <a href="https://x.com/wearebloopers" target="_blank" class="project-link">@wearebloopers</a>
+                        </div>
                         <div class="timeline-period">2023 – Present</div>
                         <div class="timeline-description">
-                            Managing vibrant Discord and Telegram communities with thousands of members. Resolving support tickets efficiently, facilitating AMA sessions, and collaborating with core teams to relay updates and gather community insights.
+                            Managing vibrant Discord and Telegram communities with thousands of members for T3RN and wearebloopers. Resolving support tickets efficiently, facilitating AMA sessions, and collaborating with core teams to relay updates and gather community insights.
                         </div>
                     </div>
                 </div>
 
+                <!-- Current Ambassador -->
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-role">Ambassador</div>
-                        <div class="timeline-company">Polyhedra Network • Nillion • Nesa • Hyperbolic</div>
+                        <div class="timeline-company">
+                            Polyhedra Network <a href="https://x.com/PolyhedraZK" target="_blank" class="project-link">@PolyhedraZK</a> • 
+                            Nillion <a href="https://x.com/nillionnetwork" target="_blank" class="project-link">@nillionnetwork</a> • 
+                            Midnight <a href="https://x.com/MidnightNtwrk" target="_blank" class="project-link">@MidnightNtwrk</a> • 
+                            Spaace <a href="https://x.com/spaace_io" target="_blank" class="project-link">@spaace_io</a> • 
+                            Nesa <a href="https://x.com/nesaorg" target="_blank" class="project-link">@nesaorg</a>
+                        </div>
                         <div class="timeline-period">2022 – Present</div>
                         <div class="timeline-description">
                             Promoting privacy-first and ZK-based technologies across social platforms. Creating tailored content to highlight technical innovations and engaging with community members to drive adoption.
@@ -556,16 +618,24 @@
                     </div>
                 </div>
 
+                <!-- Previous Contributor -->
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-role">Contributor</div>
-                        <div class="timeline-company">zkLink • PIP • Ambrus Studio • Others</div>
+                        <div class="timeline-role">Previous Contributor</div>
+                        <div class="timeline-company">
+                            zkLink <a href="https://x.com/zkLink_Official" target="_blank" class="project-link">@zkLink_Official</a> • 
+                            375ai <a href="https://x.com/375ai_" target="_blank" class="project-link">@375ai_</a> • 
+                            Hyperbolic <a href="https://x.com/hyperbolic_labs" target="_blank" class="project-link">@hyperbolic_labs</a> • 
+                            PIP <a href="https://x.com/getpipcom" target="_blank" class="project-link">@getpipcom</a> • 
+                            Ambrus Studio <a href="https://x.com/AmbrusStudio" target="_blank" class="project-link">@AmbrusStudio</a>
+                        </div>
                         <div class="timeline-period">2021 – 2023</div>
                         <div class="timeline-description">
-                            Supporting early-stage community growth and onboarding. Providing strategic feedback on UX and governance models while helping shape brand voice and community tone.
+                            Supporting early-stage community growth and onboarding across various blockchain projects. Providing strategic feedback on UX and governance models while helping shape brand voice and community tone.
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
@@ -590,12 +660,12 @@
         </section>
 
         <footer>
-            <p>© 2025 Abdul Alahi. Building the future of decentralized communities.</p>
+            <p>© 2026 Abdul Alahi. Building the future of decentralized communities.</p>
         </footer>
     </div>
 
     <script>
-        // 3D Tilt Effect
+        // 3D Tilt Effect (smoother & more responsive)
         document.querySelectorAll('.skill-card, .timeline-content').forEach(card => {
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();
@@ -605,18 +675,18 @@
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
 
-                const rotateX = (y - centerY) / 10;
-                const rotateY = (centerX - x) / 10;
+                const rotateX = (y - centerY) / 12;
+                const rotateY = (centerX - x) / 12;
 
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+                card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
             });
 
             card.addEventListener('mouseleave', () => {
-                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`;
+                card.style.transform = `perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0)`;
             });
         });
 
-        // Custom Cursor
+        // Custom Cursor (smoother follow)
         const cursor = document.querySelector('.cursor');
         const follower = document.querySelector('.cursor-follower');
         let mouseX = 0, mouseY = 0;
@@ -629,43 +699,44 @@
         });
 
         function animateFollower() {
-            followerX += (mouseX - followerX - 20) * 0.1;
-            followerY += (mouseY - followerY - 20) * 0.1;
+            followerX += (mouseX - followerX - 20) * 0.12;
+            followerY += (mouseY - followerY - 20) * 0.12;
             follower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0)`;
             requestAnimationFrame(animateFollower);
         }
         animateFollower();
 
-        document.querySelectorAll('a, .skill-card, .timeline-content, .interest-tag').forEach(el => {
+        // Cursor scale on interactive elements
+        document.querySelectorAll('a, .skill-card, .timeline-content, .interest-tag, .social-btn').forEach(el => {
             el.addEventListener('mouseenter', () => {
                 follower.style.width = '80px';
                 follower.style.height = '80px';
-                follower.style.background = 'rgba(255, 255, 255, 0.1)';
-                followerX -= 20;
-                followerY -= 20;
+                follower.style.background = 'rgba(255, 255, 255, 0.12)';
+                follower.style.border = '1px solid rgba(102, 126, 234, 0.6)';
             });
             el.addEventListener('mouseleave', () => {
                 follower.style.width = '40px';
                 follower.style.height = '40px';
                 follower.style.background = 'none';
+                follower.style.border = '1px solid rgba(255, 255, 255, 0.5)';
             });
         });
 
-        // Parallax Orbs
+        // Parallax Orbs (smoother)
         document.addEventListener('mousemove', (e) => {
             const x = (e.clientX - window.innerWidth / 2) / window.innerWidth;
             const y = (e.clientY - window.innerHeight / 2) / window.innerHeight;
 
             document.querySelectorAll('.orb').forEach((orb, index) => {
-                const factor = (index + 1) * 40;
+                const factor = (index + 1) * 45;
                 orb.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
             });
         });
 
-        // Intersection Observer for scroll animations
+        // Intersection Observer for scroll animations (with stagger)
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -677,7 +748,7 @@
             });
         }, observerOptions);
 
-        // Animate elements on scroll with staggered delays
+        // Animate sections
         const containers = ['.skills-grid', '.timeline', '.achievements-list', '.interests-grid'];
         containers.forEach(selector => {
             const container = document.querySelector(selector);
@@ -685,21 +756,23 @@
                 const children = container.children;
                 Array.from(children).forEach((child, index) => {
                     child.style.opacity = '0';
-                    child.style.transform = 'translateY(20px)';
-                    child.style.transition = `opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1)`;
-                    child.style.transitionDelay = `${index * 0.1}s`;
+                    child.style.transform = 'translateY(30px)';
+                    child.style.transition = `opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1), transform 0.9s cubic-bezier(0.23, 1, 0.32, 1)`;
+                    child.style.transitionDelay = `${index * 0.08}s`;
                     observer.observe(child);
                 });
             }
         });
 
-        // Also observe single elements
+        // Profile & Bio entrance
         document.querySelectorAll('.profile-card, .bio-section').forEach(el => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1)';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 1s cubic-bezier(0.23, 1, 0.32, 1), transform 1s cubic-bezier(0.23, 1, 0.32, 1)';
             observer.observe(el);
         });
+
+        console.log('%c✅ Portfolio updated with latest roles + clickable X handles. UI/UX is now smoother with refined transitions, hover states, and performance tweaks.', 'color:#667eea; font-family:Inter; font-size:13px');
     </script>
 </body>
 </html>
