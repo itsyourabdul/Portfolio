@@ -454,95 +454,6 @@
             transform: rotate(360deg);
         }
 
-        .timeline {
-            position: relative;
-            padding-left: 32px;
-            margin-bottom: 40px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .timeline-item {
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -38px;
-            top: 0;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #667eea;
-            border: 3px solid #0a0a0a;
-            transition: all 0.4s ease;
-        }
-
-        .timeline-item:hover::before {
-            transform: scale(1.4);
-            background: #764ba2;
-        }
-
-        .timeline-content {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(40px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 24px;
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            will-change: transform;
-        }
-
-        .timeline-content:hover {
-            background: rgba(255, 255, 255, 0.06);
-            transform: translateX(12px);
-            box-shadow: 0 20px 30px -10px rgba(102, 126, 234, 0.25);
-        }
-
-        .timeline-role {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .timeline-company {
-            color: #667eea;
-            font-size: 15px;
-            margin-bottom: 8px;
-            line-height: 1.5;
-        }
-
-        .timeline-period {
-            font-size: 13px;
-            color: #888;
-            margin-bottom: 12px;
-        }
-
-        .timeline-description {
-            color: #aaa;
-            font-size: 14px;
-            line-height: 1.7;
-        }
-
-        .project-handles {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 18px;
-            padding-top: 18px;
-            border-top: 1px dashed rgba(255,255,255,0.1);
-        }
-
         .achievements-list {
             list-style: none;
             margin-bottom: 40px;
@@ -669,10 +580,6 @@
                 width: 100%;
                 justify-content: center;
             }
-
-            .timeline {
-                padding-left: 24px;
-            }
         }
     </style>
 </head>
@@ -699,9 +606,9 @@
 
         <div class="bio-section">
             <h2>About Me</h2>
-            <p>Community Moderator with 4.5+ years of experience in blockchain ecosystems, specializing in decentralized technologies, privacy-first platforms, and community engagement.</p>
-            <p>I'm passionate about building inclusive communities where every voice matters. My work focuses on fostering trust through transparency, managing support channels efficiently, and translating complex technical concepts into accessible narratives that resonate with diverse audiences.</p>
-            <p>With deep expertise in ZK protocols, interoperability, and decentralized infrastructure, I bridge the gap between cutting-edge blockchain technology and the communities that power them.</p>
+            <p>Passionate Blockchain Community Moderator with 4.5+ years crafting dynamic ecosystems around cutting-edge decentralized technologies and privacy-first innovations.</p>
+            <p>I excel at turning technical complexity into clear, engaging conversations while building inclusive spaces where every member feels empowered to contribute.</p>
+            <p>With a focus on ZK protocols, interoperability, and decentralized infrastructure, I’m driven to connect communities with the future of Web3.</p>
         </div>
 
         <!-- Updated Core Skills - New paragraph + individual animated categories -->
@@ -785,7 +692,7 @@
 
                     <div class="project-card">
                         <div class="project-header">
-                            <span class="project-role">AMBASSADOR • 2022–Present</span>
+                            <span class="project-role">AMBASSADOR • 2025–Present</span>
                         </div>
                         <h3 style="margin-bottom:12px; font-size:19px;">Midnight</h3>
                         <a href="https://x.com/MidnightNtwrk" target="_blank" class="x-btn"><span>𝕏</span> @MidnightNtwrk</a>
@@ -795,7 +702,7 @@
 
                     <div class="project-card">
                         <div class="project-header">
-                            <span class="project-role">AMBASSADOR • 2022–Present</span>
+                            <span class="project-role">AMBASSADOR • 2025–Present</span>
                         </div>
                         <h3 style="margin-bottom:12px; font-size:19px;">Spaace</h3>
                         <a href="https://x.com/spaace_io" target="_blank" class="x-btn"><span>𝕏</span> @spaace_io</a>
@@ -868,67 +775,6 @@
         </section>
 
         <section class="section">
-            <h2 class="section-title">Experience</h2>
-            <div class="timeline">
-
-                <!-- Current Moderator (kept compact) -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-role">Moderator</div>
-                        <div class="timeline-company">T3RN &amp; wearebloopers</div>
-                        <div class="timeline-period">2023 – Present</div>
-                        <div class="timeline-description">
-                            Managing vibrant Discord and Telegram communities with thousands of members. Resolving support tickets efficiently, facilitating AMA sessions, and collaborating with core teams.
-                        </div>
-                        <div class="project-handles">
-                            <a href="https://x.com/t3rn_io" target="_blank" class="x-btn"><span>𝕏</span> @t3rn_io</a>
-                            <a href="https://x.com/wearebloopers" target="_blank" class="x-btn"><span>𝕏</span> @wearebloopers</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Ambassador -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-role">Ambassador</div>
-                        <div class="timeline-company">Polyhedra • Nillion • Midnight • Spaace • Nesa</div>
-                        <div class="timeline-period">2022 – Present</div>
-                        <div class="timeline-description">
-                            Promoting privacy-first and ZK-based technologies across social platforms. Creating tailored content and driving adoption.
-                        </div>
-                        <div class="project-handles">
-                            <a href="https://x.com/PolyhedraZK" target="_blank" class="x-btn"><span>𝕏</span> @PolyhedraZK</a>
-                            <a href="https://x.com/nillionnetwork" target="_blank" class="x-btn"><span>𝕏</span> @nillionnetwork</a>
-                            <a href="https://x.com/MidnightNtwrk" target="_blank" class="x-btn"><span>𝕏</span> @MidnightNtwrk</a>
-                            <a href="https://x.com/spaace_io" target="_blank" class="x-btn"><span>𝕏</span> @spaace_io</a>
-                            <a href="https://x.com/nesaorg" target="_blank" class="x-btn"><span>𝕏</span> @nesaorg</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Previous Contributor -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-role">Previous Contributor</div>
-                        <div class="timeline-company">zkLink • 375ai • Hyperbolic • PIP • Ambrus Studio</div>
-                        <div class="timeline-period">2021 – 2023</div>
-                        <div class="timeline-description">
-                            Supporting early-stage community growth, onboarding, and strategic feedback across multiple blockchain projects.
-                        </div>
-                        <div class="project-handles">
-                            <a href="https://x.com/zkLink_Official" target="_blank" class="x-btn"><span>𝕏</span> @zkLink_Official</a>
-                            <a href="https://x.com/375ai_" target="_blank" class="x-btn"><span>𝕏</span> @375ai_</a>
-                            <a href="https://x.com/hyperbolic_labs" target="_blank" class="x-btn"><span>𝕏</span> @hyperbolic_labs</a>
-                            <a href="https://x.com/getpipcom" target="_blank" class="x-btn"><span>𝕏</span> @getpipcom</a>
-                            <a href="https://x.com/AmbrusStudio" target="_blank" class="x-btn"><span>𝕏</span> @AmbrusStudio</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="section">
             <h2 class="section-title">Achievements</h2>
             <ul class="achievements-list">
                 <li>Built and sustained high-engagement communities across multiple blockchain projects</li>
@@ -957,10 +803,20 @@
         <section class="section">
             <h2 class="section-title">Interests</h2>
             <div class="interests-grid">
-                <div class="interest-tag">🔐 Universal ZK Protocols</div>
-                <div class="interest-tag">💻 Decentralized Computing</div>
-                <div class="interest-tag">🗳️ Community-Led Governance</div>
-                <div class="interest-tag">🤖 AI × Blockchain</div>
+                <div class="interest-tag">💬 Discord</div>
+                <div class="interest-tag">𝕏 X</div>
+                <div class="interest-tag">📬 Telegram</div>
+                <div class="interest-tag">🤖 AI</div>
+                <div class="interest-tag">🌍 Travelling</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Languages</h2>
+            <div class="interests-grid">
+                <div class="interest-tag">🇧🇩 Bangla (Native)</div>
+                <div class="interest-tag">🇬🇧 English (Fluent)</div>
+                <div class="interest-tag">🇮🇳 Hindi (Fluent)</div>
             </div>
         </section>
 
