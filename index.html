@@ -260,7 +260,6 @@
             color: #ccc;
             font-size: 16px;
             line-height: 1.8;
-            margin-bottom: 16px;
         }
 
         .section {
@@ -353,7 +352,7 @@
             line-height: 1.6;
         }
 
-        /* Projects Section - Now in right column with scroll */
+        /* Projects Section - Fully animated & aesthetic */
         .projects-section {
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(40px);
@@ -370,8 +369,8 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 18px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
 
         .project-card {
@@ -382,6 +381,18 @@
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             position: relative;
             overflow: hidden;
+            animation: projectPop 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        @keyframes projectPop {
+            0% {
+                opacity: 0;
+                transform: scale(0.95) translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
         }
 
         .project-card::after {
@@ -396,13 +407,13 @@
         }
 
         .project-card:hover {
-            transform: translateY(-6px) scale(1.04);
+            transform: translateY(-8px) scale(1.05);
             border-color: #667eea;
-            box-shadow: 0 25px 35px -15px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 25px 35px -15px rgba(102, 126, 234, 0.4);
         }
 
         .project-card:hover::after {
-            opacity: 0.08;
+            opacity: 0.1;
         }
 
         .project-header {
@@ -471,6 +482,7 @@
             transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
             padding-left: 50px;
             position: relative;
+            cursor: pointer;
         }
 
         .achievements-list li::before {
@@ -486,6 +498,12 @@
             transform: translateX(8px);
             background: rgba(255, 255, 255, 0.05);
             border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        /* Zoom animation on click */
+        .achievements-list li.zoomed {
+            transform: scale(1.12) !important;
+            box-shadow: 0 0 0 8px rgba(102, 126, 234, 0.2);
         }
 
         .interests-grid {
@@ -509,6 +527,20 @@
             background: rgba(102, 126, 234, 0.25);
             transform: scale(1.08);
             border-color: #667eea;
+        }
+
+        /* Languages in a clean horizontal row */
+        .languages-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .languages-row .interest-tag {
+            flex: 1;
+            min-width: 160px;
+            text-align: center;
         }
 
         /* New Goals section styling */
@@ -574,16 +606,11 @@
             border-radius: 20px;
         }
 
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 60px;
-        }
-
-        footer p {
-            color: #888;
-            font-size: 14px;
+        /* Side-by-side Achievements + Interests */
+        .achievements-interests-wrapper {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
         @media (max-width: 768px) {
@@ -626,6 +653,16 @@
                 max-height: none;
                 overflow-y: visible;
             }
+
+            /* Mobile: stack Achievements + Interests */
+            .achievements-interests-wrapper {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -647,13 +684,13 @@
             <div class="social-links">
                 <a href="https://x.com/itsyourabdul" target="_blank" class="social-btn">𝕏</a>
                 <a href="https://discord.com/users/itsyourabdul" target="_blank" class="social-btn">💬 Discord</a>
+                <a href="https://t.me/itsyourabdul" target="_blank" class="social-btn">📱 Telegram</a>
             </div>
         </div>
 
         <div class="bio-section">
             <h2>About Me</h2>
-            <p>Passionate Blockchain Community Moderator with 4.5+ years crafting dynamic ecosystems around cutting-edge decentralized technologies and privacy-first innovations.</p>
-            <p>I excel at turning technical complexity into clear, engaging conversations while building inclusive spaces where every member feels empowered to contribute.</p>
+            <p>Passionate Blockchain Community Moderator with 4.5+ years crafting dynamic ecosystems around cutting-edge decentralized technologies and privacy-first innovations. I excel at turning technical complexity into clear, engaging conversations while building inclusive spaces where every member feels empowered to contribute.</p>
         </div>
 
         <!-- Two-column professional layout -->
@@ -692,7 +729,7 @@
                     </div>
                 </section>
 
-                <!-- Community Goals (moved above Achievements) -->
+                <!-- Community Goals -->
                 <section class="section">
                     <h2 class="section-title">Community Goals</h2>
                     <div class="goals-card">
@@ -708,33 +745,36 @@
                     </div>
                 </section>
 
-                <!-- Achievements -->
-                <section class="section">
-                    <h2 class="section-title">Achievements</h2>
-                    <ul class="achievements-list">
-                        <li>Built and sustained high-engagement communities across multiple blockchain projects</li>
-                        <li>Recognized for rapid response times and empathetic moderation style</li>
-                        <li>Amplified positive sentiment and resilience during critical project pivots</li>
-                        <li>Delivered platform-optimized content with strong visual identity</li>
-                    </ul>
-                </section>
+                <!-- Achievements + Interests side-by-side -->
+                <div class="achievements-interests-wrapper">
+                    <!-- Achievements -->
+                    <section class="section" style="flex:1;">
+                        <h2 class="section-title">Achievements</h2>
+                        <ul class="achievements-list">
+                            <li>Built and sustained high-engagement communities across multiple blockchain projects</li>
+                            <li>Recognized for rapid response times and empathetic moderation style</li>
+                            <li>Amplified positive sentiment and resilience during critical project pivots</li>
+                            <li>Delivered platform-optimized content with strong visual identity</li>
+                        </ul>
+                    </section>
 
-                <!-- Interests -->
-                <section class="section">
-                    <h2 class="section-title">Interests</h2>
-                    <div class="interests-grid">
-                        <div class="interest-tag">💬 Discord</div>
-                        <div class="interest-tag">𝕏 X</div>
-                        <div class="interest-tag">📬 Telegram</div>
-                        <div class="interest-tag">🤖 AI</div>
-                        <div class="interest-tag">🌍 Travelling</div>
-                    </div>
-                </section>
+                    <!-- Interests -->
+                    <section class="section" style="flex:1;">
+                        <h2 class="section-title">Interests</h2>
+                        <div class="interests-grid">
+                            <div class="interest-tag">💬 Discord</div>
+                            <div class="interest-tag">𝕏 X</div>
+                            <div class="interest-tag">📬 Telegram</div>
+                            <div class="interest-tag">🤖 AI</div>
+                            <div class="interest-tag">🌍 Travelling</div>
+                        </div>
+                    </section>
+                </div>
 
-                <!-- Languages -->
+                <!-- Languages (in a clean row) -->
                 <section class="section">
                     <h2 class="section-title">Languages</h2>
-                    <div class="interests-grid">
+                    <div class="languages-row">
                         <div class="interest-tag">🇧🇩 Bangla (Native)</div>
                         <div class="interest-tag">🇬🇧 English (Fluent)</div>
                         <div class="interest-tag">🇮🇳 Hindi (Fluent)</div>
@@ -743,7 +783,7 @@
 
             </div>
 
-            <!-- RIGHT COLUMN - My Communities & Projects (scrollable) -->
+            <!-- RIGHT COLUMN - My Communities & Projects (fully animated + 2 columns) -->
             <div class="right-column">
                 <section class="section">
                     <h2 class="section-title">My Communities &amp; Projects</h2>
@@ -751,7 +791,6 @@
                         <p style="color:#888; font-size:15px; margin-bottom:28px; text-align:center;">Click any 𝕏 handle below to connect directly — each card is a live portal into the ecosystems I help grow.</p>
                         <div class="projects-grid">
 
-                            <!-- ABOVE GROUP (Polyhedra, Nillion, Midnight, Spaace, zkLink, Nesa) -->
                             <div class="project-card">
                                 <div class="project-header">
                                     <span class="project-role">AMBASSADOR • 2022–Present</span>
@@ -812,7 +851,6 @@
                                 <p style="font-size:13px; color:#aaa; margin-top:12px;">Omnichain zk-Rollup aggregation</p>
                             </div>
 
-                            <!-- BELOW GROUP (remaining projects) -->
                             <div class="project-card">
                                 <div class="project-header">
                                     <span class="project-role">MODERATOR • 2023–Present</span>
@@ -885,7 +923,7 @@
     </div>
 
     <script>
-        // 3D Tilt Effect (existing + extended to new project cards)
+        // 3D Tilt Effect (extended to project cards)
         document.querySelectorAll('.skill-card, .timeline-content, .project-card').forEach(card => {
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();
@@ -906,7 +944,7 @@
             });
         });
 
-        // Custom Cursor (unchanged)
+        // Custom Cursor
         const cursor = document.querySelector('.cursor');
         const follower = document.querySelector('.cursor-follower');
         let mouseX = 0, mouseY = 0;
@@ -926,7 +964,7 @@
         }
         animateFollower();
 
-        // Cursor scale on interactive elements (extended to new x-btn and project cards)
+        // Cursor scale on interactive elements
         document.querySelectorAll('a, .skill-card, .timeline-content, .interest-tag, .social-btn, .x-btn, .project-card').forEach(el => {
             el.addEventListener('mouseenter', () => {
                 follower.style.width = '80px';
@@ -942,7 +980,7 @@
             });
         });
 
-        // Parallax Orbs (unchanged)
+        // Parallax Orbs
         document.addEventListener('mousemove', (e) => {
             const x = (e.clientX - window.innerWidth / 2) / window.innerWidth;
             const y = (e.clientY - window.innerHeight / 2) / window.innerHeight;
@@ -968,8 +1006,8 @@
             });
         }, observerOptions);
 
-        // Animate sections & new projects
-        const containers = ['.skills-grid', '.projects-grid', '.timeline', '.achievements-list', '.interests-grid'];
+        // Animate sections & projects
+        const containers = ['.skills-grid', '.projects-grid', '.achievements-list', '.interests-grid', '.languages-row'];
         containers.forEach(selector => {
             const container = document.querySelector(selector);
             if (container) {
@@ -992,7 +1030,17 @@
             observer.observe(el);
         });
 
-        console.log('%c✅ Portfolio upgraded with new animated Core Skills interface, full individual aesthetic X handle project cards, dedicated Community Goals section, two-column professional layout, and scrollable right-side projects panel. Hover & scroll for magic!', 'color:#667eea; font-family:Inter; font-size:13px');
+        // Achievements zoom-in animation on click (standard pulse zoom)
+        document.querySelectorAll('.achievements-list li').forEach(li => {
+            li.addEventListener('click', () => {
+                li.classList.add('zoomed');
+                setTimeout(() => {
+                    li.classList.remove('zoomed');
+                }, 900);
+            });
+        });
+
+        console.log('%c✅ Portfolio upgraded: About Me now in ONE line • Interests placed beside Achievements • My Communities & Projects fully animated (pop-in + enhanced hover) and set to 2 columns • Telegram added • Languages in clean row • Achievements zoom-in on click!', 'color:#667eea; font-family:Inter; font-size:13px');
     </script>
 </body>
 </html>
